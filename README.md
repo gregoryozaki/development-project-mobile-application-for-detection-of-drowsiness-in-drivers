@@ -9,11 +9,13 @@ Este projeto tem como objetivo o desenvolvimento de um aplicativo Android capaz 
 O repositório possui a seguinte organização de documentação:
 
 ```bash
-documentation/
-├─ 1. Descrição do Projeto.md
-├─ 2. Escopo.md
-├─ 3. Diagramas UML.md
-└─ LICENSE
+.
+├── documentation/
+│   ├── 1. Descrição do Projeto.md
+│   ├── 2. Escopo.md
+│   └── 3. Diagramas UML.md
+├── LICENSE
+└── README.md
 ```
 
 
