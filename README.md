@@ -36,9 +36,8 @@ documentation/
 
 ## 👥 Equipe de Desenvolvimento
 
-- Alana Pascoal Gama  
+- Gabriela Rodrigues Nascimento
 - Gregory Gabriel Ozaki Coelho  
-- Kayth Kariny Marques Pinheiro  
 - Leano Guerreiro Baba  
 - Taíza Paula de Oliveira Lima  
 
@@ -50,7 +49,6 @@ documentation/
 - **Linguagem**: Kotlin / Java  
 - **Bibliotecas de Visão Computacional**: ML Kit  
 - **Interface**: Jetpack Compose  
-- **Controle e Simulação**: Sistemas embarcados veiculares simulados  
 
 ---
 
