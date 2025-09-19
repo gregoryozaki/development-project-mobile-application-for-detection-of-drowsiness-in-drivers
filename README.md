@@ -1,6 +1,6 @@
 # Aplicativo Mobile de Monitoramento de Sonolência em Motoristas
 
-Este projeto tem como objetivo o desenvolvimento de um aplicativo Android capaz de detectar sinais de fadiga e sonolência em motoristas em tempo real, utilizando técnicas de visão computacional e simulação integrada com sistemas embarcados veiculares.
+Este projeto tem como objetivo o desenvolvimento de um aplicativo Android capaz de detectar sinais de fadiga e sonolência em motoristas em tempo real, utilizando técnicas de visão computacional.
 
 ---
 
@@ -32,7 +32,6 @@ O repositório possui a seguinte organização de documentação:
 - Classificação automática do estado dos olhos (abertos ou fechados).
 - Contagem de quadros consecutivos com olhos fechados e emissão de alertas sonoros.
 - Exibição de indicadores de desempenho, como FPS e latência.
-- Simulação de integração com sistemas embarcados veiculares para ações corretivas.
 
 ---
 
