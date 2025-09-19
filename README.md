@@ -49,16 +49,4 @@ O repositório possui a seguinte organização de documentação:
 - **Plataforma**: Android  
 - **Linguagem**: Kotlin / Java  
 - **Bibliotecas de Visão Computacional**: ML Kit  
-- **Interface**: Jetpack Compose  
-
----
-
-## ⚠ Avisos
-
-Este aplicativo está em fase de desenvolvimento e os testes em veículos reais ainda não foram realizados. Utilize sempre em ambientes controlados para validação.
-
----
-
-## 📄 Licença
-
-Ver [LICENSE](documentation/LICENSE) para mais detalhes.
+- **Interface**: Jetpack Compose
