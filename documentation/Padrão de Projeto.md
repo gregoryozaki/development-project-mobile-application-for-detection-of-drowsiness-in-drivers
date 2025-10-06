@@ -15,6 +15,8 @@ Principais pontos:
 * Separa a criação do uso do objeto.
 
 ## Problema que resolve
+Ele resolve o problema de acoplamento entre o código cliente e as classes concretas, permitindo que o sistema seja extensível sem modificações diretas. Ou seja, facilita a inclusão de novos tipos de objetos sem alterar o código existente apenas criando novas fábricas.
+Esse padrão também:
 * Evita if/else/switch espalhados pelo código para escolher qual classe criar.
 * Reduz acoplamento entre cliente e classes concretas.
 * Facilita adição de novos produtos: só crie uma nova ConcreteCreator e ConcreteProduct, sem alterar cliente.
