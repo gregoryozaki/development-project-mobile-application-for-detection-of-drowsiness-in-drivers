@@ -34,6 +34,7 @@ Esse padrão pode ser aplicado em:
 * APIs que precisam retornar implementações específicas com base em configurações regionais.
 
 ## Representação UML
+![Diagrama](https://drive.google.com/uc?export=view&id=1Mjh5z5_FLCHDqh6b9U1uo-yB-j03UjQa)
 
 * Creator (Abstrata): Declara o método de fabricação (factoryMethod), que retorna um objeto do tipo Product. Também pode conter uma implementação padrão que utiliza o produto criado.
 * ConcreteCreator (A e B): São as subclasses que implementam o factoryMethod para criar instâncias de produtos concretos (ConcreteProductA e ConcreteProductB).
