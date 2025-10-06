@@ -35,6 +35,125 @@ Esse padrão pode ser aplicado em:
 
 ## Representação UML
 
+* Creator (Abstrata): Declara o método de fabricação (factoryMethod), que retorna um objeto do tipo Product. Também pode conter uma implementação padrão que utiliza o produto criado.
+* ConcreteCreator (A e B): São as subclasses que implementam o factoryMethod para criar instâncias de produtos concretos (ConcreteProductA e ConcreteProductB).
+* Product (Interface): Define a interface comum para os objetos que o método de fabricação cria.
+* ConcreteProduct (A e B): São as classes que implementam a interface Product, representando os objetos que serão criados.
 
 ## Exemplo de Código
+```
+// Product
+interface Notification {
+    fun send(message: String)
+}
 
+// Concrete Products
+class EmailNotification : Notification {
+    override fun send(message: String) {
+        println("Enviando e-mail: $message")
+    }
+}
+
+class SMSNotification : Notification {
+    override fun send(message: String) {
+        println("Enviando SMS: $message")
+    }
+}
+
+// Creator
+abstract class NotificationCreator {
+    abstract fun createNotification(): Notification
+
+    fun notifyUser(message: String) {
+        val notification = createNotification()
+        notification.send(message)
+    }
+}
+
+// Concrete Creators
+class EmailNotificationCreator : NotificationCreator() {
+    override fun createNotification(): Notification = EmailNotification()
+}
+
+class SMSNotificationCreator : NotificationCreator() {
+    override fun createNotification(): Notification = SMSNotification()
+}
+
+// Client
+fun main() {
+    val creator: NotificationCreator = EmailNotificationCreator()
+    creator.notifyUser("Bem-vindo!")
+
+    val smsCreator: NotificationCreator = SMSNotificationCreator()
+    smsCreator.notifyUser("Código de verificação: 1234")
+}
+```
+### Product
+```
+interface Notification {
+    fun send(message: String)
+}
+```
+* Notification é a interface do produto.
+* Define o comportamento que todos os tipos de notificação devem ter (send).
+
+### Concrete Products
+```
+class EmailNotification : Notification {
+    override fun send(message: String) {
+        println("Enviando e-mail: $message")
+    }
+}
+
+class SMSNotification : Notification {
+    override fun send(message: String) {
+        println("Enviando SMS: $message")
+    }
+}
+```
+* EmailNotification e SMSNotification são os produtos concretos.
+* Eles implementam a interface Notification com comportamentos específicos.
+
+### Creator
+```
+abstract class NotificationCreator {
+    abstract fun createNotification(): Notification
+
+    fun notifyUser(message: String) {
+        val notification = createNotification()
+        notification.send(message)
+    }
+}
+```
+* NotificationCreator é a classe criadora abstrata.
+* Define o método Factory: createNotification().
+* Tem um método notifyUser que usa o produto retornado pelo Factory Method.
+
+Ponto chave: o creator não sabe qual produto específico será criado, isso é decidido pelas subclasses.
+
+### Concrete Creators
+```
+class EmailNotificationCreator : NotificationCreator() {
+    override fun createNotification(): Notification = EmailNotification()
+}
+
+class SMSNotificationCreator : NotificationCreator() {
+    override fun createNotification(): Notification = SMSNotification()
+}
+```
+* Subclasses concretas do creator que decidem qual produto criar.
+* EmailNotificationCreator cria EmailNotification, e SMSNotificationCreator cria SMSNotification.
+
+### Client
+```
+fun main() {
+    val creator: NotificationCreator = EmailNotificationCreator()
+    creator.notifyUser("Bem-vindo!")
+
+    val smsCreator: NotificationCreator = SMSNotificationCreator()
+    smsCreator.notifyUser("Código de verificação: 1234")
+}
+```
+* O client usa o creator abstrato, mas pode passar qualquer Concrete Creator.
+* Não precisa instanciar diretamente EmailNotification ou SMSNotification.
+* Fácil adicionar novos tipos de notificações sem alterar o código do client.
