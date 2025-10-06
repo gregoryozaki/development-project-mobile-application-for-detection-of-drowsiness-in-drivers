@@ -14,3 +14,25 @@ Principais pontos:
 * Usa herança (subclasses sobrescrevem o factory method).
 * Separa a criação do uso do objeto.
 
+## Problema que resolve
+* Evita if/else/switch espalhados pelo código para escolher qual classe criar.
+* Reduz acoplamento entre cliente e classes concretas.
+* Facilita adição de novos produtos: só crie uma nova ConcreteCreator e ConcreteProduct, sem alterar cliente.
+* Ajuda a aderir ao princípio Open/Closed (abrir para extensão, fechar para modificação).
+
+## Quando aplicar
+Usar Factory Method quando:
+* Quiser permitir que subclasses escolham qual classe de produto usar.
+* O comportamento de criação precisa variar em subclasses.
+* Uma classe não pode antecipar o tipo de objetos que deve criar.
+
+Esse padrão pode ser aplicado em:
+* Sistemas de pagamento internacional, onde a moeda varia conforme o país do cliente;
+* Aplicativos de e-commerce, para formatar preços automaticamente;
+* APIs que precisam retornar implementações específicas com base em configurações regionais.
+
+## Representação UML
+
+
+## Exemplo de Código
+
