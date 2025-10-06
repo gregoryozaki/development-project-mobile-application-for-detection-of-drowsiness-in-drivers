@@ -66,19 +66,34 @@ Esse padrão pode ser aplicado em:
 #### Relacionamentos entre Classes
 
 **Herança (Linha Contínua)**
+
+
 FaceDetectorFactory <|-- CNNDetectorFactory
+
+
 FaceDetectorFactory <|-- HaarDetectorFactory
 
 > CNNDetectorFactory e HaarDetectorFactory herdam de FaceDetectorFactory, herdando `configurarDetector()` e implementando `criarFaceDetector()`.
 
 **Implementação de Interface**
+
+
 FaceDetector <|-- CNNFaceDetector
+
+
 FaceDetector <|-- HaarFaceDetector
+
 > Garantem que ambos terão os mesmos métodos públicos.
 
 **Associação (Linha Pontilhada)**
+
+
 FaceDetectorFactory --> FaceDetector
+
+
 CameraManager --> FaceDetectorFactory
+
+
 > FaceDetectorFactory conhece FaceDetector (retorna esse tipo)  
 > CameraManager conhece FaceDetectorFactory (usa para criar detectores)
 
