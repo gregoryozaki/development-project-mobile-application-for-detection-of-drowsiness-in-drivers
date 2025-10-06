@@ -36,10 +36,53 @@ Esse padrão pode ser aplicado em:
 ## Representação UML
 ![Diagrama](https://drive.google.com/uc?export=view&id=1Mjh5z5_FLCHDqh6b9U1uo-yB-j03UjQa)
 
-* Creator (Abstrata): Declara o método de fabricação (factoryMethod), que retorna um objeto do tipo Product. Também pode conter uma implementação padrão que utiliza o produto criado.
-* ConcreteCreator (A e B): São as subclasses que implementam o factoryMethod para criar instâncias de produtos concretos (ConcreteProductA e ConcreteProductB).
-* Product (Interface): Define a interface comum para os objetos que o método de fabricação cria.
-* ConcreteProduct (A e B): São as classes que implementam a interface Product, representando os objetos que serão criados.
+### Padrão Factory Method - Exemplo FaceDetector
+
+#### Product Interface
+**FaceDetector**: Interface que define o contrato comum que todos os detectores devem seguir  
+**Métodos**: `detectarRosto()`, `detectarOlhos()`, `estaOlhoFechado()`  
+> Operações que qualquer detector deve implementar.
+
+#### Concrete Products
+- **CNNFaceDetector**: Implementação usando Rede Neural Convolucional (mais preciso, mas mais lento)  
+- **HaarFaceDetector**: Implementação usando Haar Cascades (mais rápido, mas menos preciso)  
+> Ambos implementam a interface FaceDetector → garantem os mesmos métodos.
+
+#### Abstract Creator
+**FaceDetectorFactory**: Classe abstrata que declara o Factory Method (`criarFaceDetector()`)  
+- **Método abstrato `criarFaceDetector()`**: Subclasses devem implementar  
+- **Método concreto `configurarDetector()`**: Pode conter lógica comum a todas as factories
+
+#### Concrete Creators
+- **CNNDetectorFactory**: Especializada em criar `CNNFaceDetector`  
+- **HaarDetectorFactory**: Especializada em criar `HaarFaceDetector`  
+> Cada factory sabe exatamente qual produto concreto instanciar.
+
+#### Client
+**CameraManager**: É o cliente que usa o padrão  
+- Depende da abstração `FaceDetectorFactory`, não das implementações concretas  
+- Não sabe qual detector específico está usando, só sabe que é um `FaceDetector`
+
+#### Relacionamentos entre Classes
+
+**Herança (Linha Contínua)**
+FaceDetectorFactory <|-- CNNDetectorFactory
+FaceDetectorFactory <|-- HaarDetectorFactory
+
+> CNNDetectorFactory e HaarDetectorFactory herdam de FaceDetectorFactory, herdando `configurarDetector()` e implementando `criarFaceDetector()`.
+
+**Implementação de Interface**
+FaceDetector <|-- CNNFaceDetector
+FaceDetector <|-- HaarFaceDetector
+> Garantem que ambos terão os mesmos métodos públicos.
+
+**Associação (Linha Pontilhada)**
+FaceDetectorFactory --> FaceDetector
+CameraManager --> FaceDetectorFactory
+> FaceDetectorFactory conhece FaceDetector (retorna esse tipo)  
+> CameraManager conhece FaceDetectorFactory (usa para criar detectores)
+
+
 
 ## Exemplo de Código
 ```
