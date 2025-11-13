@@ -50,3 +50,9 @@ O repositório possui a seguinte organização de documentação:
 - **Linguagem**: Kotlin / Java  
 - **Bibliotecas de Visão Computacional**: ML Kit  
 - **Interface**: Jetpack Compose
+
+---
+
+## Link do Código do Repositório
+[Realtime Drawsiness And Yawning Detector](https://github.com/leanoguerreiro/realtime-drawsiness_and_yawning_detector)
+
